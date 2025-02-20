@@ -4,12 +4,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../../../Services/Auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkWithHref } from '@angular/router';
 import { User } from '../../../Interfaces/User.model';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  standalone: true,
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule,RouterLinkWithHref,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -39,5 +40,8 @@ OnclickGoogle(){
   }) 
   .catch(error => console.log(error))
 
+}
+goToRegister() {
+  this.router.navigate(['/register']);
 }
 }
