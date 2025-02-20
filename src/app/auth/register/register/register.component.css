@@ -1,0 +1,49 @@
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #f4f4f4;
+  }
+  
+  .register-form {
+    background: #fffa65; /* Light yellow (post-it) */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    position: relative;
+    transform: rotate(2deg);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+  }
+  
+  .register-form::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  button {
+    background: #ff9f1c !important;
+    color: white !important;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background: #ff6f00 !important;
+    transform: scale(1.05);
+  }
+  

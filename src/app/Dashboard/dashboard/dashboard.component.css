@@ -1,0 +1,10 @@
+button {
+    background: #ff9f1c !important; /* Orange post-it color */
+    color: white !important;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background:rgb(81, 207, 81) !important; /* Dark orange hover color */
+  }

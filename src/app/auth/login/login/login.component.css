@@ -1,0 +1,58 @@
+/* Center the form */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full screen height */
+    background: #f4f4f4;
+  }
+  
+  /* Post-it style card */
+  .login-form {
+    background: #fffa65; /* Light yellow post-it color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    text-align: center;
+    position: relative;
+    transform: rotate(0deg); /* Slightly tilted */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Handwritten font */
+  }
+  
+  /* Fake sticky note effect */
+  .login-form::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+  }
+  
+  /* Input fields */
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  /* Buttons */
+  .example-button-row {
+    margin-top: 10px;
+  }
+  
+  button {
+    background: #ff9f1c !important; /* Orange post-it color */
+    color: white !important;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background: #ff6f00 !important;
+    transform: scale(1.05);
+  }
+  
