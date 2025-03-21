@@ -11,7 +11,8 @@
     "serve:ssr:travelogin": "node dist/travelogin/server/server.mjs"
   },
   "private": true,
-  "dependencies": {
+  "dependencies":
+   {
     "@angular/animations": "^19.0.0",
     "@angular/cdk": "^19.1.4",
     "@angular/common": "^19.0.0",
