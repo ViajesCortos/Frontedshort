@@ -1,0 +1,26 @@
+<!-- header.component.html -->
+<mat-toolbar color="primary">
+    <!-- Logo Section -->
+    <a routerLink="/" class="logo-link">
+      <img [src]="logoUrl" [alt]="logoAlt" class="logo">
+    </a>
+  
+    <span class="spacer"></span>
+  
+    <!-- Language Selector -->
+    <button mat-button [matMenuTriggerFor]="languageMenu">
+      <mat-icon>language</mat-icon>
+      {{ currentLanguage | uppercase }}
+    </button>
+    <mat-menu #languageMenu="matMenu">
+      <button mat-menu-item (click)="switchLanguage('en')">English</button>
+      <button mat-menu-item (click)="switchLanguage('es')">Español</button>
+      <button mat-menu-item (click)="switchLanguage('fr')">Français</button>
+    </mat-menu>
+  
+    <!-- Login Button -->
+    <button mat-button (click)="handleLogin()">
+      <mat-icon>account_circle</mat-icon>
+      Login
+    </button>
+  </mat-toolbar>
