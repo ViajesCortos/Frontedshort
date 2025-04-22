@@ -1,5 +1,9 @@
 import { Component, inject } from '@angular/core';
+<<<<<<< HEAD
 import { AuthService } from '../../../Services/Auth.service'; 
+=======
+import { AuthService } from '../../../Services/auth.service'; 
+>>>>>>> 18fe514 (feat:Mapa interactivo con marcadores test)
 import { Validators, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { User } from '../../../Interfaces/User.model'; 

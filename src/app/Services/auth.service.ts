@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth'
 import { User } from '../Interfaces/User.model';
+import { Auth } from '@angular/fire/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor() {}
+  constructor(private auth: Auth) {}
+  
   getAuth (){
     return getAuth();
   }
@@ -18,13 +20,13 @@ export class AuthService {
     return signInWithEmailAndPassword(getAuth(),user.email,user.password);
   }
   logInGoogle(){
-    return signInWithPopup(getAuth(), new GoogleAuthProvider)
+    return signInWithPopup(getAuth(), new GoogleAuthProvider())
   }
   logLogout(){
     return signOut(getAuth());
   }
-  IsAuthenticated():boolean{
-    const user = getAuth().currentUser;
-    return user !== null;
+  IsAuthenticated(): boolean {
+    return localStorage.getItem('token') !== null;
   }
+  
 }
