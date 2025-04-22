@@ -18,7 +18,7 @@ export default class GoogleMapComponent implements OnChanges {
   center: google.maps.LatLngLiteral = { lat: 4.6097, lng: -74.0817 };
   zoom = 7;
   ruta: google.maps.LatLngLiteral[] = [];
-
+// .
   constructor() {
     this.loadGoogleMapsApi();
   }
