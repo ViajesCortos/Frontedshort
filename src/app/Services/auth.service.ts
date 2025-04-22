@@ -26,7 +26,10 @@ export class AuthService {
     return signOut(getAuth());
   }
   IsAuthenticated(): boolean {
-    return localStorage.getItem('token') !== null;
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('token');
+      return !!token;
+    }
+    return false;
   }
-  
 }

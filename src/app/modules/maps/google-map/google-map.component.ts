@@ -1,56 +1,63 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GoogleMapsModule } from '@angular/google-maps';
-import { environment } from '../../../../enviroments/enviroment';
+import { GoogleMap, MapMarker, MapPolyline } from '@angular/google-maps';
 
 @Component({
+  imports: [MapMarker, MapPolyline, GoogleMap, CommonModule],
   selector: 'app-google-map',
-  standalone: true,
-  imports: [CommonModule, GoogleMapsModule],
   templateUrl: './google-map.component.html',
-  styleUrls: ['./google-map.component.css']
+  styleUrls: ['./google-map.component.css'],
+  standalone: true
 })
-export default class GoogleMapComponent implements OnChanges {
-  
-  @Input() origen!: { lat: number, lng: number } | null;
-  @Input() destino!: { lat: number, lng: number } | null;
-  
-  center: google.maps.LatLngLiteral = { lat: 4.6097, lng: -74.0817 };
-  zoom = 7;
-  ruta: google.maps.LatLngLiteral[] = [];
-// .
-  constructor() {
-    this.loadGoogleMapsApi();
-  }
+export default class GoogleMapComponent implements OnChanges, AfterViewInit {
+  @ViewChild(GoogleMap, { static: false }) map!: GoogleMap;
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['origen'] || changes['destino']) {
-      this.trazarRuta();
+  @Input() origen!: google.maps.LatLngLiteral;
+  @Input() destino!: google.maps.LatLngLiteral;
+
+  center: google.maps.LatLngLiteral = { lat: 4.570868, lng: -74.297333 }; // 🇨🇴
+  
+  zoom = 6;
+
+  path: google.maps.LatLngLiteral[] = [];
+
+  mapOptions: google.maps.MapOptions = {
+    mapTypeId: 'roadmap',
+    zoomControl: true,
+    scrollwheel: true,
+    disableDoubleClickZoom: false,
+    maxZoom: 18,
+    minZoom: 4,
+  };
+
+  polylineOptions: google.maps.PolylineOptions = {
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 3,
+
+    
+  };
+
+  ngAfterViewInit(): void {
+    // Aseguramos que el centro inicial sea Colombia
+    if (this.map) {
+      this.map.panTo(this.center);
+      this.map.zoom = this.zoom;
     }
   }
 
-  private loadGoogleMapsApi() {
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&libraries=geometry`;
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
-  }
-
-  private trazarRuta() {
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('center en ngOnChanges:', this.center);  // Imprimir el valor de center al cambiar
+  
     if (this.origen && this.destino) {
-      this.ruta = [this.origen, this.destino];
-      this.calcularDistancia();
+      this.path = [this.origen, this.destino];
+  
+      // Solo actualiza el centro cuando se tiene origen
+      if (this.map) {
+        this.map.panTo(this.origen);
+        this.map.zoom = 10;
+      }
     }
   }
-
-  private calcularDistancia() {
-    if (this.origen && this.destino && google.maps.geometry) {
-      const origen = new google.maps.LatLng(this.origen.lat, this.origen.lng);
-      const destino = new google.maps.LatLng(this.destino.lat, this.destino.lng);
-      const distancia = google.maps.geometry.spherical.computeDistanceBetween(origen, destino) / 1000;
-
-      console.log(`Distancia entre puntos: ${distancia.toFixed(2)} km`);
-    }
-  }
+  
 }

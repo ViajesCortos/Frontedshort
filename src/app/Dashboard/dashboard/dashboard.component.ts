@@ -1,5 +1,5 @@
 import { Component, inject, Inject } from '@angular/core';
-import { AuthService } from '../../Services/Auth.service';
+import { AuthService } from '../../Services/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import GoogleMapComponent from '../../modules/maps/google-map/google-map.component';
