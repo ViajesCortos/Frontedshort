@@ -1,0 +1,29 @@
+<div class="dashboard-container">
+    <!-- Panel de selección -->
+    <div class="panel">
+        <img src="https://rickandmortyapi.com/api/character/avatar/773.jpeg" alt="Profile Pic">
+      <h2>Selecciona tu ruta</h2>
+      
+      <label>Desde:</label>
+      <select [(ngModel)]="origen">
+        <option *ngFor="let lugar of lugares" [value]="lugar.nombre">{{ lugar.nombre }}</option>
+      </select>
+  
+      <label>Hasta:</label>
+      <select [(ngModel)]="destino">
+        <option *ngFor="let lugar of lugares" [value]="lugar.nombre">{{ lugar.nombre }}</option>
+      </select>
+  
+      <button (click)="seleccionarRuta()">Buscar Ruta</button>
+    </div>
+  
+    <!-- Mapa -->
+    <div class="map-container">
+      <app-google-map width="100%" height="100%"   [origen]="getCoordenadas(origen)" 
+      [destino]="getCoordenadas(destino)" ></app-google-map>
+    </div>
+    
+</div>
+<button (click)="logOut()">Cerrar sesion</button>
+
+  

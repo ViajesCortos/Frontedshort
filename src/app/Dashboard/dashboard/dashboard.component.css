@@ -1,0 +1,63 @@
+button {
+    background: #ff9f1c !important; /* Orange post-it color */
+    color: white !important;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background:rgb(81, 207, 81) !important; /* Dark orange hover color */
+  }
+  .dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .panel {
+    width: 30%;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .panel h2 {
+    margin-bottom: 10px;
+  }
+  
+  .panel label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+  }
+  
+  .panel select, .panel button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .panel button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .panel button:hover {
+    background-color: #0056b3;
+  }
+  
+  .map-container {
+    width: 65%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  

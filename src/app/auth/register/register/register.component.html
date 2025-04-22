@@ -1,0 +1,54 @@
+<div class="center-container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register-form">
+      <div class="container">
+        <h2>Register</h2>
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="Enter your first name" formControlName="firstName">
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Enter your last name" formControlName="lastName">
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Enter your email" formControlName="email">
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Enter your password" formControlName="password">
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>Age</mat-label>
+          <input matInput type="number" placeholder="Enter your age" formControlName="age">
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>Phone</mat-label>
+          <input matInput type="number" placeholder="Enter your phone number" formControlName="phone">
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>Location</mat-label>
+          <input matInput placeholder="Enter your location" formControlName="location">
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width">
+          <mat-label>Gender</mat-label>
+          <input matInput placeholder="Write your gender" formControlName="gender">
+        </mat-form-field>
+  
+        <div class="example-button-row">
+          <button mat-flat-button type="submit">Register</button>
+        </div>
+      </div>
+    </form>
+  
+    <a routerLink="/login">Already have an account? Login</a>
+  </div>
+  
