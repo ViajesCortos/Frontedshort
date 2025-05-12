@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GoogleMapComponent } from './google-map.component';
+import { SeatMapComponent } from './seat-map.component';
 
-describe('GoogleMapComponent', () => {
-  let component: GoogleMapComponent;
-  let fixture: ComponentFixture<GoogleMapComponent>;
+describe('SeatMapComponentComponent', () => {
+  let component: SeatMapComponent;
+  let fixture: ComponentFixture<SeatMapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GoogleMapComponent]
+      imports: [SeatMapComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GoogleMapComponent);
+    fixture = TestBed.createComponent(SeatMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

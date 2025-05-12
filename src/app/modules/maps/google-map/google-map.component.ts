@@ -14,7 +14,7 @@ export default class GoogleMapComponent implements OnChanges, AfterViewInit {
 
   @Input() origen!: google.maps.LatLngLiteral;
   @Input() destino!: google.maps.LatLngLiteral;
-
+  
   center: google.maps.LatLngLiteral = { lat: 4.570868, lng: -74.297333 }; // 🇨🇴
   
   zoom = 6;

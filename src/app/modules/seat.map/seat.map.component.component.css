@@ -1,0 +1,220 @@
+/* seat-map.component.css */
+:host {
+  display: block;
+  font-family: 'Roboto', sans-serif;
+}
+
+.booking-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 25px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Columna Formulario */
+.form-column {
+  flex: 1;
+  min-width: 300px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2E7D32;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group select, 
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #c8e6c9;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+.form-group select:focus, 
+.form-group input:focus {
+  outline: none;
+  border-color: #2E7D32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+}
+
+.passenger-count input {
+  font-weight: bold;
+  color: #2E7D32;
+  text-align: center;
+  max-width: 80px;
+}
+
+/* Columna Precios - Desktop (Ajusté solo el espaciado) */
+.prices-column {
+  flex: 2;
+  min-width: 0;
+}
+
+.prices-header {
+  display: flex;
+  background: linear-gradient(135deg, #2E7D32, #4CAF50);
+  color: white;
+  font-weight: 600;
+  padding: 16px 20px; /* Ajusté el padding */
+  border-radius: 10px 10px 0 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px; /* Espacio debajo del header */
+}
+
+.prices-header > div {
+  flex: 1;
+  text-align: center;
+}
+
+.price-row {
+  display: flex;
+  padding: 16px 20px; /* Aumenté el padding */
+  margin-bottom: 10px; /* Espacio entre filas */
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+  align-items: center;
+  transition: all 0.2s ease;
+  border-radius: 4px; /* Suavizado de esquinas */
+}
+
+.price-row:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.price-row > div {
+  flex: 1;
+  text-align: center;
+  padding: 0 12px; /* Más espacio horizontal */
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.company-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: white;
+  padding: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.price {
+  font-weight: 700;
+  color: #2E7D32;
+  font-size: 18px;
+}
+
+.missing {
+  color: #F44336;
+  font-weight: 600;
+}
+
+.low-availability {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+/* Efectos y mejoras visuales */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232E7D32'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+/* Responsive (900px o menos) */
+@media (max-width: 900px) {
+  .prices-header {
+    display: none;
+  }
+
+  .company-logo {
+    display: none;
+  }
+
+  .price-row {
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Aumenté de 12px a 18px */
+    padding: 25px 20px; /* Aumenté el padding vertical */
+    text-align: left;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Aumenté el margen inferior */
+  }
+
+  .price-row > div {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 100px;
+    min-height: 36px; /* Aumenté la altura mínima */
+    line-height: 1.5; /* Mejor espaciado entre líneas */
+  }
+
+  .price-row > div::before {
+    content: attr(data-label) ":";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90px;
+    font-weight: 600;
+    color: #2E7D32;
+    text-align: right;
+    padding-right: 12px; /* Aumenté el padding derecho */
+    box-sizing: border-box;
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas (<480px) */
+@media (max-width: 480px) {
+  .price-row {
+    gap: 16px; /* Espacio ligeramente menor en móviles pequeños */
+    padding: 20px 15px;
+  }
+  
+  .price-row > div {
+    padding-left: 85px;
+    font-size: 15px; /* Tamaño de fuente ligeramente mayor */
+    min-height: 32px;
+  }
+  
+  .price-row > div::before {
+    width: 80px;
+    font-size: 14px;
+  }
+}

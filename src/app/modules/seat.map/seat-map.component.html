@@ -1,0 +1,59 @@
+<div class="booking-container">
+  <!-- Columna izquierda - Formulario -->
+  <div class="form-column">
+    <div class="form-group">
+      <label for="origen">ORIGEN</label>
+      <select id="origen" [(ngModel)]="origen" (change)="validateRoute()">
+        <option *ngFor="let city of cities" [value]="city" [disabled]="city === destino()">{{city}}</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="destino">DESTINO</label>
+      <select id="destino" [(ngModel)]="destino" (change)="validateRoute()">
+        <option *ngFor="let city of cities" [value]="city" [disabled]="city === origen()">{{city}}</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="salida">SALIDA</label>
+      <select id="salida" [(ngModel)]="salida">
+        <option *ngFor="let time of departureTimes" [value]="time">{{time}}</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label>LLEGADA</label>
+      <input type="text" [value]="llegada()" readonly>
+    </div>
+    
+    <div class="form-group passenger-count">
+      <label for="pasajeros">PASAJEROS</label>
+      <input id="pasajeros" type="number" [(ngModel)]="pasajeros" min="1" max="10">
+    </div>
+  </div>
+  
+  <!-- Columna derecha - Precios -->
+  <div class="prices-column">
+    <div class="prices-header">
+      <div>PRECIO</div>
+      <div>EMPRESA</div>
+      <div>HORARIO</div>
+      <div>ASIENTOS</div>
+    </div>
+  <div class="prices-column">
+  <div class="price-row" *ngFor="let item of prices">
+    <div class="price" data-label="PRECIO">{{item.amount | currency:'COP':'symbol':'1.0-0'}}</div>
+    <div class="company" data-label="EMPRESA">
+      <img [src]="item.logo" [alt]="item.company + ' logo'" class="company-logo">
+      {{item.company}}
+    </div>
+    <div class="schedule" data-label="HORARIO">{{item.schedule}}</div>
+    <div class="missing" [class.low-availability]="item.missing < 3" data-label="ASIENTOS">
+      {{item.missing}} {{item.missing === 1 ? 'ASIENTO' : 'ASIENTOS'}}
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+

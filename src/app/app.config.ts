@@ -40,15 +40,15 @@ import { environment } from '../enviroments/enviroment';
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { routes } from './app.routes';
 import { provideRouter } from '@angular/router';
-import { GoogleMapsModule } from '@angular/google-maps'; // ✅ Importa GoogleMapsModule
+import { GoogleMapsModule } from '@angular/google-maps'; 
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes) ,// ✅ Agregamos rutas correctamente
+    provideRouter(routes) ,
     importProvidersFrom(GoogleMapsModule) ,
 
 
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), // 🚀 Aquí pasamos las credenciales
-    provideAuth(() => getAuth()) // ✅ Importante para inyectar Auth
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), 
+    provideAuth(() => getAuth()) 
   ]
 };

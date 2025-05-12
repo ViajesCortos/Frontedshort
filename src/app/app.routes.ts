@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './Guards/auth.guard'; 
+import { SeatMapComponent } from './modules/seat.map/seat-map.component';
+
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -16,6 +18,8 @@ export const routes: Routes = [
         path:'login',
         loadComponent: ()=> import('./auth/login/login/login.component'),
         
-    }
-
+    },  {
+        path: 'seat-map',  // Usa minúsculas y guiones
+        component: SeatMapComponent
+      }
 ];

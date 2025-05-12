@@ -27,6 +27,7 @@ export default class DashboardComponent {
 
   seleccionarRuta() {
     console.log(`Ruta seleccionada: ${this.origen} -> ${this.destino}`);
+    this.router.navigate(['//seat-map']);
   }
  
   getCoordenadas(nombre: string) {
@@ -44,5 +45,6 @@ export default class DashboardComponent {
     .catch((error: any) => console.log(error));
 
   }
+  
   
 }
